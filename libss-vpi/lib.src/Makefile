@@ -1,17 +1,3 @@
-################################################################################
-#                        NORTH CAROLINA STATE UNIVERSITY
-#
-#                               AnyCore Project
-#
-# AnyCore Copyright (c) 2007-2016 by Rangeen Basu Roy Chowdhury and 
-# Eric Rotenberg. All Rights Reserved.
-#
-# AnyCore is based on FabScalar (c) 2007-2016 by Niket K. Choudhary, 
-# Brandon H. Dwiel, and Eric Rotenberg.  All Rights Reserved.
-#
-# AnyCore is distributed under Berkeley License.
-################################################################################
-
 # Pick your favorite compiler
 CC = g++
 
