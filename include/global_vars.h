@@ -1,6 +1,13 @@
 #ifndef _GLOBAL_VARS_H
 #define _GLOBAL_VARS_H
 
+#ifndef TRUE
+#define TRUE 1
+#endif
+#ifndef FALSE
+#define FALSE 0
+#endif
+
 extern Thread *THREAD[MAX_THREADS];
 extern unsigned int NumThreads;
 extern FILE *fp_info;

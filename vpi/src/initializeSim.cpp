@@ -147,6 +147,7 @@ int initializeSim(char *user_data)
   if (CHECKPOINT != NULL)
     {
       vpi_printf("\nRestoring functional checkpoint\n");
+      vpi_flush();
       THREAD[0]->restore_checkpoint(CHECKPOINT);
 
 //       if (SKIP_AMT < THREAD[0]->num_insn)

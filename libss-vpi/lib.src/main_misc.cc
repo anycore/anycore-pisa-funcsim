@@ -33,18 +33,18 @@
 #include "global_vars.h"
 
 #define JOB_ARGS	64
-/* exit when this becomes non-zero */
-int sim_exit_now = FALSE;
+///* exit when this becomes non-zero */
+//int sim_exit_now = FALSE;
 
-/* longjmp here when simulation is completed */
-jmp_buf sim_exit_buf;
+///* longjmp here when simulation is completed */
+//jmp_buf sim_exit_buf;
 
-/* instruction jump table */
-#ifdef sparc
-register void **local_op_jump asm("g7");
-#else
-void **local_op_jump;
-#endif
+///* instruction jump table */
+//#ifdef sparc
+//register void **local_op_jump asm("g7");
+//#else
+//void **local_op_jump;
+//#endif
 
 void tokenize(char *job, int& argc, char **argv) {
   char delimit[4] = " \t\n";	// tokenize based on "space", "tab", eol
@@ -76,7 +76,7 @@ void ss_unlock(SS_ADDR_TYPE lockaddr) {
      THREAD[i]->wakeup(lockaddr);
 }
 
-void
-sim_config(FILE *stream)
-{
-}
+//void
+//sim_config(FILE *stream)
+//{
+//}

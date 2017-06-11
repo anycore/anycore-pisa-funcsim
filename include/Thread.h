@@ -110,7 +110,6 @@ void ss_syscall(mem_access_fn mem_fn, SS_INST_TYPE inst);
 // Debug buffer
 /////////////////
 //#define DB_SIZE 8192
-//#define DB_SIZE 8192*128
 #define DB_SIZE 8192*2
 debug_buffer *DB;
 unsigned int arch_PC;
@@ -156,9 +155,10 @@ SS_COUNTER_TYPE num_insn;
 SS_COUNTER_TYPE num_refs;
 
 Thread(int argc, char **argv, char **envp) {
-	// initialize loader state
 	unsigned int i;
-        ld_text_base = 0;
+
+	// initialize loader state
+	ld_text_base = 0;
 	ld_text_size = 0;
 	ld_data_base = 0;
 	ld_data_size = 0;
@@ -623,8 +623,6 @@ void stop_checkpoint();
 
 #define MAX_THREADS	4
 
-// extern Thread *THREAD[MAX_THREADS];
-// extern unsigned int NumThreads;
-
-
+//extern Thread *THREAD[MAX_THREADS];
+//extern unsigned int NumThreads;
 #endif

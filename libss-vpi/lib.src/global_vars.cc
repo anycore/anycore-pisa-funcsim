@@ -1,6 +1,6 @@
 #include "Thread.h"
-#include "veri_memory_macros.h"
-#include "veri_memory.h"
+//#include "veri_memory_macros.h"
+//#include "veri_memory.h"
 
 Thread *THREAD[MAX_THREADS];
 unsigned int NumThreads = 1;

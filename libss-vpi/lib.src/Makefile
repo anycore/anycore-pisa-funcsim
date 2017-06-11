@@ -1,8 +1,22 @@
+################################################################################
+#                        NORTH CAROLINA STATE UNIVERSITY
+#
+#                               AnyCore Project
+#
+# AnyCore Copyright (c) 2007-2016 by Rangeen Basu Roy Chowdhury and 
+# Eric Rotenberg. All Rights Reserved.
+#
+# AnyCore is based on FabScalar (c) 2007-2016 by Niket K. Choudhary, 
+# Brandon H. Dwiel, and Eric Rotenberg.  All Rights Reserved.
+#
+# AnyCore is distributed under Berkeley License.
+################################################################################
+
 # Pick your favorite compiler
 CC = g++
 
 # Choose your optimization level here
-OPT  = -g -O3 -finline-functions -funroll-loops
+OPT  = -g -O3 -finline-functions -funroll-loops -m32
 OPT2 = -ggdb -fno-inline -m32 -fPIC
 
 # INC = -I../include -I../../include
@@ -12,8 +26,11 @@ CFLAGS  = $(OPT)  $(INC) -DSIM_LINUX -DBYTES_LITTLE_ENDIAN -DWORDS_LITTLE_ENDIAN
 CFLAGS2 = $(OPT2) $(INC) -DSIM_LINUX -DBYTES_LITTLE_ENDIAN -DWORDS_LITTLE_ENDIAN
 
 
+SIM_OBJ_FUNCSIM = main_misc.o syscall.o memory.o regs.o loader.o ss.o endian.o misc.o \
+	  arch.o func_sim.o info.o sim_main.o main.o sim_input.o sim_output.o global_vars.o 
+
 SIM_OBJ = main_misc.o syscall.o memory.o regs.o loader.o ss.o endian.o misc.o \
-	  arch.o func_sim.o info.o sim_main.o 
+	  arch.o func_sim.o info.o sim_main.o global_vars.o 
 
 #global_vars.o
 
@@ -23,6 +40,12 @@ all: libSS_VPI.a
 	touch ../lib/libSS_VPI.a
 	mv ../lib/libSS_VPI.a ../lib/libSS_VPI.a.bak
 	cp libSS_VPI.a ../lib/libSS_VPI.a
+	@echo "my work is done here..."
+
+funcsim: $(SIM_OBJ_FUNCSIM)
+	$(CC) $(CFLAGS2) -o funcsim $(SIM_OBJ_FUNCSIM)
+	mkdir -p ../../bin
+	cp -f funcsim ../../bin/funcsim
 	@echo "my work is done here..."
 
 libSS_VPI.a:	$(SIM_OBJ)
@@ -40,5 +63,5 @@ endian.o:  endian.cc
 
 
 clean:
-	rm -f *.o libSS_VPI.a core
+	rm -f *.o libSS_VPI.a funcsim
 
